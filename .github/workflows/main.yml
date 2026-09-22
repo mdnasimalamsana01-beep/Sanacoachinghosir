@@ -19,8 +19,6 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.7'
 
       - name: Extract project
         run: |
@@ -28,16 +26,13 @@ jobs:
           unzip -q SanaCoachingHosir.zip -d project
 
       - name: Build APK
-        working-directory: project
-        run: 
-        - name: Build APK
-  run: |
-    cd project/SanaCoachingHosir
-    chmod +x gradlew
-    ./gradlew :app:assembleDebug
+        working-directory: project/SanaCoachingHosir
+        run: |
+          chmod +x gradlew
+          ./gradlew :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Sana-Coaching-Hosir-APK
-          path: project/app/build/outputs/apk/debug/app-debug.apk
+          path: project/SanaCoachingHosir/app/build/outputs/apk/debug/app-debug.apk

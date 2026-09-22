@@ -29,7 +29,12 @@ jobs:
 
       - name: Build APK
         working-directory: project
-        run: gradle :app:assembleDebug
+        run: 
+        - name: Build APK
+  run: |
+    cd project/SanaCoachingHosir
+    chmod +x gradlew
+    ./gradlew :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

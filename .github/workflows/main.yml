@@ -22,7 +22,7 @@ jobs:
         with:
           gradle-version: '8.7'
 
-      - name: Extract Android project
+      - name: Extract project
         run: |
           mkdir project
           unzip -q SanaCoachingHosir.zip -d project
